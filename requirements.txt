@@ -1,0 +1,8 @@
+flask
+pytesseract
+opencv-python-headless
+tabula-py
+pandas
+streamlit
+requests
+python-dotenv
