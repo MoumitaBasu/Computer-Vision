@@ -3,7 +3,7 @@ import requests
 import pandas as pd
 from PIL import Image
 import io
-BACKEND_URL = "https://dashboard.render.com/web/srv-cuet0bdds78s73fbn6dg/deploys/dep-cuet0blds78s73fbn6i0"  # Replace with actual Render URL
+BACKEND_URL = "https://computer-vision-2afk.onrender.com"  # Replace with actual Render URL
 
 # Function to upload files and interact with backend
 def upload_files_to_backend(files):
