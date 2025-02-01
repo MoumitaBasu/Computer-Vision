@@ -4,6 +4,11 @@ import os
 
 app = Flask(__name__)
 
+# ✅ Default route to confirm backend is running
+@app.route('/')
+def home():
+    return jsonify({"message": "Backend is running!"}), 200
+
 @app.route('/upload', methods=['POST'])
 def upload_file():
     if 'file' not in request.files:
@@ -26,4 +31,4 @@ def upload_file():
         return jsonify({'ocr_text': ocr_text, 'ocr_df': ocr_df.to_json()}), 200
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5005)
+    app.run(debug=True, host='0.0.0.0', port=10000)
