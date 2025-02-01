@@ -3,7 +3,7 @@ import requests
 import pandas as pd
 from PIL import Image
 import io
-BACKEND_URL = "https://computer-vision-2afk.onrender.com"  # Replace with actual Render URL
+BACKEND_URL = "https://computer-vision-2afk.onrender.com/"  # Replace with actual Render URL
 
 # Function to upload files and interact with backend
 def upload_files_to_backend(files):
@@ -11,6 +11,8 @@ def upload_files_to_backend(files):
     for file in files:
         files = {'file': file.getvalue()}
         response = requests.post(f"{BACKEND_URL}/upload", files=files)
+        # Print the raw response text for debugging
+        print(response.text)  # This will help you see what the backend is returning
         if response.status_code == 200:
             result = response.json()
             if 'ocr_text' in result and 'ocr_df' in result:
