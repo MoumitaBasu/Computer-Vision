@@ -3,13 +3,14 @@ import requests
 import pandas as pd
 from PIL import Image
 import io
+BACKEND_URL = "https://dashboard.render.com/web/srv-cuet0bdds78s73fbn6dg/deploys/dep-cuet0blds78s73fbn6i0"  # Replace with actual Render URL
 
 # Function to upload files and interact with backend
 def upload_files_to_backend(files):
     uploaded_files_data = []
     for file in files:
         files = {'file': file.getvalue()}
-        response = requests.post("http://localhost:5005/upload", files=files)
+        response = requests.post(f"{BACKEND_URL}/upload", files=files)
         if response.status_code == 200:
             result = response.json()
             if 'ocr_text' in result and 'ocr_df' in result:
